@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Cat</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <style>
+  
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffe27a, #ffd1dc);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cat {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-size: 24px;
+            margin: 20px 0;
+            color: #ff8c42;
+            font-weight: bold;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .yes {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(255, 193, 7, 0.7);
+        }
+
+        .no {
+            background-color: #ff5722;
+            color: white;
+        }
+
+        .no:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(255, 87, 34, 0.7);
+        }
+
+        .message {
+            font-size: 22px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+        .message.fade-in {
+            animation: fade-in 2s ease-in-out;
+            color: #ff8c42;
+        }
+
+        .message.shake {
+            animation: shake 0.5s ease-in-out;
+            color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.pinimg.com/736x/c9/1e/3a/c91e3a494c1184f08fc9cb3d992283af.jpg" alt="Cute Cat" class="cat" id="cat">
+        <div class="question" id="question">Will you celebrate your birthday with me?</div>
+        <div class="button-container">
+            <button class="yes" onclick="handleYes()">Yes</button>
+            <button class="no" onclick="handleNo()">No</button>
+        </div>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function handleYes() {
+            const cat = document.getElementById('cat');
+            const question = document.getElementById('question');
+            const message = document.getElementById('message');
+
+            cat.src = "https://i.pinimg.com/736x/14/69/08/146908f83d3ae98837c9e58db54f5dde.jpg"; // Happy birthday cat
+            question.style.display = "none";
+            message.textContent = "Yay! Let's have the best birthday ever! 🎉🎂";
+            message.className = "message fade-in";
+        }
+
+        function handleNo() {
+            const cat = document.getElementById('cat');
+            const question = document.getElementById('question');
+            const message = document.getElementById('message');
+
+            cat.src = "https://i.pinimg.com/736x/3f/56/e9/3f56e9866a17281f6c817bb1dbb65ed4.jpg"; // Sad birthday cat
+            question.style.display = "none";
+            message.textContent = "Oh no, I'll celebrate on my own... 💔🎂";
+            message.className = "message shake";
+        }
+    </script>
+</body>
+</html>
